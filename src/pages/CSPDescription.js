@@ -1,6 +1,7 @@
 import React from 'react'
 import ContentBlock from 'components/ContentBlock'
 import NextPage from 'components/ChangePage/NextPage'
+import Quote from 'components/Quote'
 
 import './CSPDescription.scss'
 
@@ -13,7 +14,7 @@ const CSPDescription = () => (
 			<code className="headerCode">
 				HTTP/1.1 200 OK<br />
 				X-Powered-By: Express<br />
-				Content-Security-Policy: script-src &apos;nonce-YcXeaCXrNaL657uehvHXnw==&apos;<br />
+				<span className="cspHiLite">Content-Security-Policy: script-src &apos;nonce-YcXeaCXrNaL657uehvHXnw==&apos;</span><br />
 				Content-Type: text/html; charset=utf-8<br />
 				Content-Length: 859<br />
 				ETag: W/&quot;35b-n9VxAAoUcqWUou8G0zmPapY/fGw&quot;<br />
@@ -23,10 +24,13 @@ const CSPDescription = () => (
 		</ContentBlock>
 		<ContentBlock title="Why is this important?">
 			<p>
-				CSP is used as a defense against Cross-Site Scripting, or XSS attacks.
+				CSP is used as a defense against Cross-Site Scripting, or XSS attacks. The <a href="https://www.owasp.org/index.php/Cross-site_Scripting_(XSS)">Open Web Application Security Project defines an XSS attack as</a>:
 			</p>
+			<Quote>
+				... a type of injection, in which malicious scripts are injected into otherwise benign and trusted websites. XSS attacks occur when an attacker uses a web application to send malicious code, generally in the form of a browser side script, to a different end user. Flaws that allow these attacks to succeed are quite widespread and occur anywhere a web application uses input from a user within the output it generates without validating or encoding it.
+			</Quote>
 		</ContentBlock>
-		<NextPage nextPageUrl="/" />
+		<NextPage nextPageUrl="/bad-form" />
 	</div>
 )
 

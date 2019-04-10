@@ -1,3 +1,5 @@
+@import "~styles/colors";
+
 html, body, #app {
   height: 100%;
   margin: 0;
@@ -14,11 +16,15 @@ div {
   text-align: center;
 }
 
+a {
+  color: $orange;
+}
+
 .pageForwardLink {
   max-height: 3rem;
 }
 
-.pageForwardChev {
+.pageChangeChev {
   height: 3rem;
   width: 3rem;
 }

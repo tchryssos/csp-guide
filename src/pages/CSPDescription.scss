@@ -1,12 +1,17 @@
+@import "~styles/colors";
+
 .cspDescriptionWrapper {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
-  height: 100%;
-  margin: 0 1.5rem;
+  margin: 0 10%;
 }
 
 .headerCode {
   font-size: 0.8rem;
+}
+
+.cspHiLite {
+  color: $orange;
 }

@@ -7,7 +7,7 @@ const NextPage = (props) => {
 	const { nextPageUrl } = props
 	return (
 		<NavLink to={nextPageUrl} exact className="pageForwardLink">
-			<img src={ChevRight} alt="Right arrow" className="pageForwardChev" />
+			<img src={ChevRight} alt="Right arrow" className="pageChangeChev" />
 		</NavLink>
 	)
 }
