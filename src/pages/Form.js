@@ -1,5 +1,5 @@
 import React from 'react'
-import './styles.scss'
+import './Form.scss'
 
 const onClick = () => {
 	const data = document.querySelector('.formInput').value
@@ -11,7 +11,7 @@ const onClick = () => {
 
 export default function () {
 	return (
-		<div className="wrapper">
+		<div className="formWrapper">
 			<input type="text" className="formInput" placeholder="Hack me" />
 			<button onClick={onClick}>Submit</button>
 			<div className="postList" />

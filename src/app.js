@@ -1,13 +1,15 @@
 import React from 'react'
 import { render } from 'react-dom'
-import { BrowserRouter } from 'react-router-dom'
-import Home from 'pages/Home'
+import { BrowserRouter, Route, Switch } from 'react-router-dom'
+import CSPDescription from 'pages/CSPDescription'
+
+import './styles/theme.scss'
 
 render(
-	<div>
-		<BrowserRouter>
-			<Home />
-		</BrowserRouter>
-	</div>,
+	<BrowserRouter>
+		<Switch>
+			<Route path="/" exact component={CSPDescription} />
+		</Switch>
+	</BrowserRouter>,
 	document.getElementById('app'),
 )
