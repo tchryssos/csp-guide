@@ -1,4 +1,5 @@
 import React from 'react'
+import PageWrapper from 'components/PageWrapper'
 import ChangePages from 'components/ChangePage/ChangePages'
 import './Form.scss'
 
@@ -13,7 +14,7 @@ const onClick = () => {
 
 export default function () {
 	return (
-		<div className="formWrapper">
+		<PageWrapper>
 			<h1>My Cool Blog</h1>
 			<input
 				type="text"
@@ -27,7 +28,7 @@ export default function () {
 				Submit
 			</button>
 			<div className="commentList" />
-			<ChangePages nextPageUrl="/" prevPageUrl="/" />
-		</div>
+			<ChangePages nextPageUrl="/defense-in-depth" prevPageUrl="/" />
+		</PageWrapper>
 	)
 }

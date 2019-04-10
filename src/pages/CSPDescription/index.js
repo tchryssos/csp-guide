@@ -1,4 +1,5 @@
 import React from 'react'
+import PageWrapper from 'components/PageWrapper'
 import ContentBlock from 'components/ContentBlock'
 import NextPage from 'components/ChangePage/NextPage'
 import Quote from 'components/Quote'
@@ -6,7 +7,7 @@ import Quote from 'components/Quote'
 import './CSPDescription.scss'
 
 const CSPDescription = () => (
-	<div className="cspDescriptionWrapper">
+	<PageWrapper>
 		<ContentBlock title="What is a Content Security Policy?">
 			<p>
 				A Content Security Policy is an HTTP response header (e.g. Content-Type) that tells the browser what content should be trusted. Normally, the browser will run any code “returned from the server”, but a CSP restricts code execution to trusted sources.
@@ -31,7 +32,7 @@ const CSPDescription = () => (
 			</Quote>
 		</ContentBlock>
 		<NextPage nextPageUrl="/bad-form" />
-	</div>
+	</PageWrapper>
 )
 
 export default CSPDescription
