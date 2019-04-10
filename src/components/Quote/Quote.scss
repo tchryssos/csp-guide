@@ -13,7 +13,8 @@
 }
 
 .quoteVertical {
-  width: 0.5rem;
+  width: 2px;
   background-color: $orange;
   margin: 0 1rem;
+  flex: 1 0 auto;
 }
