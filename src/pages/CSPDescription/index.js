@@ -12,7 +12,7 @@ const CSPDescription = () => (
 			<p>
 				A Content Security Policy is an HTTP response header (e.g. Content-Type) that tells the browser what content should be trusted. Normally, the browser will run any code “returned from the server”, but a CSP restricts code execution to trusted sources.
 			</p>
-			<code className="headerCode">
+			<code>
 				HTTP/1.1 200 OK<br />
 				X-Powered-By: Express<br />
 				<span className="cspHiLite">Content-Security-Policy: script-src &apos;nonce-YcXeaCXrNaL657uehvHXnw==&apos;</span><br />

@@ -16,8 +16,34 @@ div {
   text-align: center;
 }
 
+h1, h2, h3 {
+  margin: 0;
+  padding: 0;
+  color: $orange;
+}
+
+h1 {
+  margin-top: 2rem;
+}
+
+p, code, img {
+  padding: 0;
+  margin: 0;
+  margin-top: 1rem;
+}
+
 a {
   color: $orange;
+}
+
+code {
+  font-size: 0.8rem;
+  padding: 1rem;
+  border: solid 0.1rem $orange;
+}
+
+.bold {
+  font-weight: 600;
 }
 
 .pageForwardLink {
