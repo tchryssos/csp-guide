@@ -1,5 +1,5 @@
 import React from 'react'
-import PrevPage from 'components/ChangePage/PrevPage'
+import ChangePages from 'components/ChangePage/ChangePages'
 import './Form.scss'
 
 const onClick = () => {
@@ -27,7 +27,7 @@ export default function () {
 				Submit
 			</button>
 			<div className="commentList" />
-			<PrevPage prevPageUrl="/" />
+			<ChangePages nextPageUrl="/" prevPageUrl="/" />
 		</div>
 	)
 }
