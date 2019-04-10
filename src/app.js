@@ -6,6 +6,7 @@ import CSPDescription from 'pages/CSPDescription'
 import Form from 'pages/Form'
 import DefenseInDepth from 'pages/Interstitial/DefenseInDepth'
 import HowDoesCSPWork from 'pages/HowDoesCSPWork'
+import Nonces from 'pages/Nonces'
 
 import './styles/theme.scss'
 
@@ -16,6 +17,7 @@ render(
 			<Route path="/bad-form" exact component={Form} />
 			<Route path="/defense-in-depth" exact component={DefenseInDepth} />
 			<Route path="/how-does-csp-work" exact component={HowDoesCSPWork} />
+			<Route path="/nonces" exact component={Nonces} />
 		</Switch>
 	</BrowserRouter>,
 	document.getElementById('app'),
