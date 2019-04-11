@@ -1,7 +1,5 @@
 import React from 'react'
 
-import PageWrapper from 'components/PageWrapper'
-import ChangePages from 'components/ChangePage/ChangePages'
 import ContentBlock from 'components/ContentBlock'
 import Quote from 'components/Quote'
 import ListItem from 'components/ListItem'
@@ -11,7 +9,7 @@ import CSSRejected from 'static/images/reject-css.jpg'
 import './HowDoesCSPWork.scss'
 
 const HowDoesCSPWork = () => (
-	<PageWrapper>
+	<>
 		<ContentBlock title="How Does CSP Work?">
 			<p>CSP generally works by specifying (“white-listing”) domains that the developer trusts to deliver content. For example, if we have a Google Analytics script that we want to run, we would white-list analytics.google.com in our content security policy.</p>
 			<code>
@@ -90,8 +88,7 @@ const HowDoesCSPWork = () => (
 		<Quote>
 			<p>Instead of relying on whitelists, application maintainers should apply a nonce-based protection approach… By using a nonce, scripts can be whitelisted individually. Even if an attacker is capable of finding an XSS, the nonce value is unpredictable, so it is not possible for the attacker to inject a valid script…</p>
 		</Quote>
-		<ChangePages prevPageUrl="/defense-in-depth" nextPageUrl="/nonces" />
-	</PageWrapper>
+	</>
 )
 
 export default HowDoesCSPWork

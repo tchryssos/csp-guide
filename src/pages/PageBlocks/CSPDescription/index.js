@@ -1,13 +1,11 @@
 import React from 'react'
-import PageWrapper from 'components/PageWrapper'
 import ContentBlock from 'components/ContentBlock'
-import NextPage from 'components/ChangePage/NextPage'
 import Quote from 'components/Quote'
 
 import './CSPDescription.scss'
 
 const CSPDescription = () => (
-	<PageWrapper>
+	<>
 		<ContentBlock title="What is a Content Security Policy?">
 			<p>
 				A Content Security Policy is an HTTP response header (e.g. Content-Type) that tells the browser what content should be trusted. Normally, the browser will run any code “returned from the server”, but a CSP restricts code execution to trusted sources.
@@ -31,8 +29,7 @@ const CSPDescription = () => (
 				... a type of injection, in which malicious scripts are injected into otherwise benign and trusted websites. XSS attacks occur when an attacker uses a web application to send malicious code, generally in the form of a browser side script, to a different end user. Flaws that allow these attacks to succeed are quite widespread and occur anywhere a web application uses input from a user within the output it generates without validating or encoding it.
 			</Quote>
 		</ContentBlock>
-		<NextPage nextPageUrl="/bad-form" />
-	</PageWrapper>
+	</>
 )
 
 export default CSPDescription

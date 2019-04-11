@@ -2,22 +2,18 @@ import React from 'react'
 import { render } from 'react-dom'
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
 
-import CSPDescription from 'pages/CSPDescription'
-import Form from 'pages/Form'
-import DefenseInDepth from 'pages/Interstitial/DefenseInDepth'
-import HowDoesCSPWork from 'pages/HowDoesCSPWork'
-import Nonces from 'pages/Nonces'
+import Home from 'pages/Home'
+import BadForm from 'pages/BadForm'
+import GoodForm from 'pages/GoodForm'
 
 import './styles/theme.scss'
 
 render(
 	<BrowserRouter>
 		<Switch>
-			<Route path="/" exact component={CSPDescription} />
-			<Route path="/bad-form" exact component={Form} />
-			<Route path="/defense-in-depth" exact component={DefenseInDepth} />
-			<Route path="/how-does-csp-work" exact component={HowDoesCSPWork} />
-			<Route path="/nonces" exact component={Nonces} />
+			<Route path="/" exact component={Home} />
+			<Route path="/bad-form" exact component={BadForm} />
+			<Route path="/good-form" exact component={GoodForm} />
 		</Switch>
 	</BrowserRouter>,
 	document.getElementById('app'),

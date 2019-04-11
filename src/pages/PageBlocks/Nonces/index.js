@@ -1,7 +1,13 @@
 import React from 'react'
 
-import PageWrapper from 'components/PageWrapper'
-import ChangePages from 'components/ChangePage/ChangePages'
+import {
+	nodeString,
+	fastlyString,
+	templatingString,
+	templateServerString,
+	findAndReplaceString,
+} from 'constants/codeStrings'
+
 import ContentBlock from 'components/ContentBlock'
 import Quote from 'components/Quote'
 
@@ -9,7 +15,7 @@ import './Nonces.scss'
 
 const generateNonce = () => {
 	// Don't use this to make a real nonce
-	const nonce = btoa(window.crypto.getRandomValues(new Uint32Array(1))[0])
+	const nonce = window.crypto.getRandomValues(new Uint32Array(1))[0]
 	const nonceTarget = document.querySelector('.nonceTarget')
 	if (nonceTarget.firstChild) {
 		nonceTarget.removeChild(nonceTarget.firstChild)
@@ -19,67 +25,20 @@ const generateNonce = () => {
 	nonceTarget.appendChild(nonceDiv)
 }
 
-const nodeString = (
-	// The following code is formatted very strangely for display purposes
-	// eslint-disable-next-line
-`app.get('/*', (req, res, next) => {
-  // Set nonce
-  const nonce = crypto.randomBytes(16).toString('base64')
-  res.setHeader(
-    'Content-Security-Policy',
-    \`script-src 'nonce-\${nonce}' 'strict-dynamic' https:\`
-  )
-})`
-)
-
-const fastlyString = (
-	// The following code is formatted very strangely for display purposes
-	// eslint-disable-next-line
-`declare local var.nonce STRING;
-set var.nonce = randomstr(16, "abcdefghijklmnopqr...");
-set resp.http.Content-Security-Policy = "script-src 'nonce-" var.nonce "'";`
-)
-
-const templatingString = (
-	'<script nonce="<%= nonce %>" type="module" src="/main.js"></script>'
-)
-
-const templateServerString = (
-	// The following code is formatted very strangely for display purposes
-	// eslint-disable-next-line
-`let nonce
-
-const setCSP = (req, res, next) => {
-  nonce = crypto.randomBytes(16).toString('base64');
-  res.setHeader(
-    'Content-Security-Policy',
-    \`script-src 'nonce-\${nonce}'\`
-  )
-  next()
-}
-
-...
-
-app.use(setCSP)
-
-...
-
-app.get('/', (req, res) => {
-  res.render('pages/index', {
-    nonce,
-  });
-});`
-)
-
 const Nonces = () => (
-	<PageWrapper>
+	<>
 		<ContentBlock title="What's a nonce?">
 			<p><a href="https://en.wikipedia.org/wiki/Cryptographic_nonce">Wikipedia</a> defines a (cryptographic) nonce as:</p>
 			<Quote>
 				<p>... an arbitrary number used only once in a cryptographic communication… To ensure that a nonce is used only once, it should be time-variant (including a suitably fine-grained timestamp in its value), or generated with enough random bits to ensure a probabilistically insignificant chance of repeating a previously generated value.</p>
 			</Quote>
 			<div className="nonceButtonWrapper">
-				<button className="nonceButton" onClick={generateNonce}>Generate Nonce</button>
+				<button
+					className="nonceButton"
+					onClick={generateNonce}
+				>
+					Generate Example Nonce
+				</button>
 				<div className="nonceTarget" />
 			</div>
 		</ContentBlock>
@@ -108,13 +67,17 @@ const Nonces = () => (
 			<code>
 				{templatingString}
 			</code>
-			<p>Now, when serving the page, you can pass a variable &#39;nonce&#39; that will be interpolated into your interpolation expression, and all of your script tags including that expression will have the nonce passed to them. The below example is simple, but should get the concept across.</p>
+			<p>Now, when serving the page, you can pass a variable &#34;nonce&#34; that will be interpolated into your interpolation expression, and all of your script tags including that expression will have the nonce passed to them. The below example is simple, but should get the concept across.</p>
 			<code className="formattedCode">
 				<pre>{templateServerString}</pre>
 			</code>
+			<p>This same approach can be applied to a framework like React, though there are a few more steps involved. See <a href="https://stackoverflow.com/questions/49639625/how-do-i-integrate-the-value-of-webpack-nonce-with-my-content-security-poli/49890126#49890126">this Stack Overflow post</a> for an example on how to use templating with React.</p>
+			<p>An alternative is to do a &#34;find and replace&#34; on script tags as your server serves your html files.</p>
+			<code className="formattedCode">
+				<pre>{findAndReplaceString}</pre>
+			</code>
 		</ContentBlock>
-		<ChangePages prevPageUrl="/how-does-csp-work" nextPageUrl="/" />
-	</PageWrapper>
+	</>
 )
 
 export default Nonces
