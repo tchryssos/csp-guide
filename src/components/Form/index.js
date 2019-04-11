@@ -1,6 +1,7 @@
 import React from 'react'
 import postComment from 'static/js/postComment'
 import { dangerousImage } from 'constants/codeStrings'
+
 import './Form.scss'
 
 const Form = () => (

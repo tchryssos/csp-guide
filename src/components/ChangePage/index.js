@@ -4,6 +4,8 @@ import { NavLink } from 'react-router-dom'
 import ChevLeft from 'static/svg/chev-left.svg'
 import ChevRight from 'static/svg/chev-right.svg'
 
+import './ChangePage.scss'
+
 const pageType = (nextPageUrl, prevPageUrl) => {
 	const pageOptions = {
 		svg: ChevLeft,
@@ -25,10 +27,10 @@ const ChangePage = (props) => {
 	const { svg, url, alt } = pageType(nextPageUrl, prevPageUrl)
 	return (
 		<NavLink to={url} exact className="pageLink">
-			<p>
-				{title}
-			</p>
 			<img src={svg} alt={alt} className="pageChangeChev" />
+			<span>
+				{title}
+			</span>
 		</NavLink>
 	)
 }
