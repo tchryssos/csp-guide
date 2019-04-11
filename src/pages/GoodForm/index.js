@@ -1,13 +1,13 @@
 import React from 'react'
 import PageWrapper from 'components/PageWrapper'
-import Form from 'components/Form'
+import Blog from 'components/Blog'
 import ChangePage from 'components/ChangePage'
 
 const GoodForm = () => (
 	<PageWrapper>
 		<ChangePage prevPageUrl="/" title="Back" />
 		<h1>My Safe Blog</h1>
-		<Form />
+		<Blog />
 	</PageWrapper>
 )
 

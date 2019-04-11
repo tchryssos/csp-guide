@@ -1,0 +1,35 @@
+@import "~styles/colors";
+
+.fakeBlogPost {
+  border: 1px solid $black;
+  font-family: 'Courier New', Courier, monospace;
+  min-width: 45%;
+  max-width: 60%;
+  margin-top: 1rem;
+  padding: 1rem;
+  * {
+    margin: 0;
+  }
+}
+
+.formWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin: 1rem;
+}
+
+.formInput {
+  height: 2rem;
+  font-size: 1.5rem;
+  border: solid 4px $orange;
+  min-width: 33%;
+}
+
+.formSubmitButton {
+  margin-top: 1rem;
+  width: 30%;
+  font-size: 1.5rem;
+}
