@@ -9,6 +9,11 @@
     margin: 0;
     padding: 0;
   }
+
+  ul {
+    margin-left: 1rem;
+  }
+
   margin-top: 1rem;
 }
 
@@ -17,4 +22,9 @@
   background-color: $orange;
   margin: 0 1rem;
   flex: 1 0 auto;
+}
+
+.quoteChildWrapper {
+  display: flex;
+  flex-direction: column;
 }

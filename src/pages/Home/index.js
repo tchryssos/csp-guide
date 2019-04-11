@@ -12,7 +12,7 @@ const Home = () => (
 		<CSPDescription />
 		<HowDoesCSPWork />
 		<Nonces />
-		{/* <Drawbacks /> */}
+		<Drawbacks />
 	</PageWrapper>
 )
 

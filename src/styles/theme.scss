@@ -8,7 +8,7 @@ html, body, #app {
 
 html {
   font-family: Arial, Helvetica, sans-serif;
-  font-size: 24px;
+  font-size: 18px;
 }
 
 h1, h2, h3 {
@@ -45,6 +45,15 @@ code {
 
 .bold {
   font-weight: 600;
+}
+
+.italics {
+  font-style: italic;
+}
+
+.subtext {
+  color: $darkGrey;
+  font-size: 0.8rem;
 }
 
 .pageForwardLink {

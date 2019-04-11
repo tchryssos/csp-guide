@@ -57,25 +57,26 @@ const Nonces = () => (
 			<code className="formattedCode">
 				<pre>{fastlyString}</pre>
 			</code>
-			<p>If you&#39;re using Cloudfront, see <a href="https://aws.amazon.com/blogs/networking-and-content-delivery/adding-http-security-headers-using-lambdaedge-and-amazon-cloudfront/">this link</a> for instructions.</p>
-			<p>Now, if we try to execute a script that doesn&#39;t include a nonce attribute matching the nonce in the header, we&#39;ll see an error message.</p>
+			<p>If you&apos;re using Cloudfront, see <a href="https://aws.amazon.com/blogs/networking-and-content-delivery/adding-http-security-headers-using-lambdaedge-and-amazon-cloudfront/">this link</a> for instructions.</p>
+			<p>Now, if we try to execute a script that doesn&apos;t include a nonce attribute matching the nonce in the header, we&apos;ll see an error message.</p>
 			<code>
-				Refused to execute inline event handler because it violates the following Content Security Policy directive: &#34;script-src &#39;nonce-&#123;your_nonce&#125;&#39;&#34;. Either the &#39;unsafe-inline&#39; keyword, a hash (&#39;sha256-...&#39;), or a nonce (&#39;nonce-...&#39;) is required to enable inline execution.
+				Refused to execute inline event handler because it violates the following Content Security Policy directive: &quot;script-src &apos;nonce-&#123;your_nonce&#125;&apos;&quot;. Either the &apos;unsafe-inline&apos; keyword, a hash (&apos;sha256-...&apos;), or a nonce (&apos;nonce-...&apos;) is required to enable inline execution.
 			</code>
 			<p>Applying the nonce to each script tag in your code is more challenging, and the implementation depends on the framework of your project.</p>
 			<p>The simplest solution is to use a templating engine (<a href="https://ejs.co/">EJS</a>, <a href="https://handlebarsjs.com/">Handlebars</a>, <a href="http://jade-lang.com/">Jade</a>, etc), which allows you to to do something like:</p>
 			<code>
 				{templatingString}
 			</code>
-			<p>Now, when serving the page, you can pass a variable &#34;nonce&#34; that will be interpolated into your interpolation expression, and all of your script tags including that expression will have the nonce passed to them. The below example is simple, but should get the concept across.</p>
+			<p>Now, when serving the page, you can pass a variable &quot;nonce&quot; that will be interpolated into your interpolation expression, and all of your script tags including that expression will have the nonce passed to them. The below example is simple, but should get the concept across.</p>
 			<code className="formattedCode">
 				<pre>{templateServerString}</pre>
 			</code>
 			<p>This same approach can be applied to a framework like React, though there are a few more steps involved. See <a href="https://stackoverflow.com/questions/49639625/how-do-i-integrate-the-value-of-webpack-nonce-with-my-content-security-poli/49890126#49890126">this Stack Overflow post</a> for an example on how to use templating with React.</p>
-			<p>An alternative is to do a &#34;find and replace&#34; on script tags as your server serves your html files.</p>
+			<p>An alternative is to do a &quot;find and replace&quot; on script tags as your server serves your html files.</p>
 			<code className="formattedCode">
 				<pre>{findAndReplaceString}</pre>
 			</code>
+			<p>As you can see, while applying nonces can be tricky (especially when trying to put them in an app retroactively), they&apos;re extremely secure. That being said, it&apos;s important to recognize their drawbacks.</p>
 		</ContentBlock>
 	</>
 )

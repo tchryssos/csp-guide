@@ -1,34 +1,12 @@
 import React from 'react'
 import PageWrapper from 'components/PageWrapper'
-import ChangePages from 'components/ChangePage/ChangePages'
-import './Form.scss'
+import Form from 'components/Form'
 
-const onClick = () => {
-	const data = document.querySelector('.formInput').value
-	const postList = document.querySelector('.commentList')
-	const newPost = document.createElement('div')
-	newPost.innerHTML = data
-	postList.appendChild(newPost)
-	document.querySelector('.formInput').value = null
-}
+const GoodForm = () => (
+	<PageWrapper>
+		<h1>My Safe Blog</h1>
+		<Form />
+	</PageWrapper>
+)
 
-export default function () {
-	return (
-		<PageWrapper>
-			<h1>My Cool Blog</h1>
-			<input
-				type="text"
-				className="formInput"
-				placeholder="Write a comment..."
-			/>
-			<button
-				onClick={onClick}
-				className="formSubmitButton"
-			>
-				Submit
-			</button>
-			<div className="commentList" />
-			<ChangePages nextPageUrl="/drawbacks" prevPageUrl="/nonces" />
-		</PageWrapper>
-	)
-}
+export default GoodForm

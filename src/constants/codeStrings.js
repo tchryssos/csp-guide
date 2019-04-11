@@ -73,3 +73,8 @@ export const findAndReplaceString = (
   }
 })`
 )
+
+export const dangerousImage = (
+	// eslint-disable-next-line quotes
+	`<img src='x' onerror='fetch("http://www.google.com")'>`
+)

@@ -8,7 +8,9 @@ const Quote = (props) => {
 	return (
 		<div className="quoteWrapper">
 			<div className="quoteVertical" />
-			{children}
+			<div className="quoteChildWrapper">
+				{children}
+			</div>
 		</div>
 	)
 }
