@@ -1,5 +1,20 @@
-.nonceGenTarget {
-  height: 50px;
-  width: 50px;
-  background-color: green;
+.nonceButtonWrapper {
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.nonceButton {
+  font-size: 1rem;
+}
+
+.nonceTarget {
+  height: 1rem;
+}
+
+.formattedCode {
+  text-align: initial;
 }
