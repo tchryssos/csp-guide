@@ -19,7 +19,11 @@ const HowDoesCSPWork = () => (
 			<code>
 				Content-Security-Policy: style-src &#39;self&#39; https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css
 			</code>
-			<img src={CSSRejected} alt="Error message showing blocked style file" />
+			<img
+				src={CSSRejected}
+				alt="Error message showing blocked style file"
+				className="cssRejectedImg"
+			/>
 		</ContentBlock>
 		<ContentBlock title="CSP Directives">
 			<p>There are currently 16 allowed directives in a Content Security Policy (via <a href="https://developers.google.com/web/fundamentals/security/csp/">Google</a>):</p>
