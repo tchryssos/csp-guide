@@ -10,7 +10,7 @@ const LinkHeader = (props) => {
 	const linkData = HEADER_LINKS[headerKey]
 
 	return (
-		<a name={linkData.link} >
+		<a name={linkData.linkName} >
 			<div className="linkHeaderWrapper">
 				<img src={LinkSvg} alt="link" className="linkImg" />
 				<h1>{linkData.text}</h1>

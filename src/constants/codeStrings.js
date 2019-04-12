@@ -1,6 +1,6 @@
 // The following code is formatted very strangely for display purposes
 
-export const nodeString = (
+export const NODE_STRING = (
 	// eslint-disable-next-line
 `app.get('/*', (req, res, next) => {
   // Set nonce
@@ -12,18 +12,18 @@ export const nodeString = (
 })`
 )
 
-export const fastlyString = (
+export const FASTLY_STRING = (
 	// eslint-disable-next-line
 `declare local var.nonce STRING;
 set var.nonce = randomstr(16, "abcdefghijklmnopqr...");
 set resp.http.Content-Security-Policy = "script-src 'nonce-" var.nonce "'";`
 )
 
-export const templatingString = (
+export const TEMPLATING_STRING = (
 	'<script nonce="<%= nonce %>" type="module" src="/main.js"></script>'
 )
 
-export const templateServerString = (
+export const TEMPLATE_SERVER_STRING = (
 	// eslint-disable-next-line
 `let nonce
 
@@ -49,7 +49,7 @@ app.get('/', (req, res) => {
 });`
 )
 
-export const findAndReplaceString = (
+export const FIND_AND_REPLACE_STRING = (
 	// eslint-disable-next-line
 `app.get('/*', (req, res, next) => {
   // Set nonce
@@ -74,7 +74,7 @@ export const findAndReplaceString = (
 })`
 )
 
-export const dangerousImage = (
+export const DANGEROUS_IMAGE = (
 	// eslint-disable-next-line quotes
 	`<img src='x' onerror='fetch("http://www.google.com")'>`
 )
