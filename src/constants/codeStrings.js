@@ -78,3 +78,22 @@ export const DANGEROUS_IMAGE = (
 	// eslint-disable-next-line quotes
 	`<img src='x' onerror='fetch("http://www.google.com")'>`
 )
+
+export const CSP_REPORT = (
+	// eslint-disable-next-line
+`{
+  "csp-report": {
+    "document-uri":"http://www.coolwebsite.com/vulnerable-page",
+    "referrer":"http://www.coolwebsite.com/",
+    "violated-directive":"script-src-attr",
+    "effective-directive":"script-src-attr",
+    "original-policy":"script-src 'nonce-hwjJJhq+gr2qDWJQjuRKOg==' 'strict-dynamic' https:; report-uri /csp-reports/",
+    "disposition":"report",
+    "blocked-uri":"inline",
+    "line-number":1,
+    "source-file":"http://www.coolwebsite.com/vulnerable-page",
+    "status-code":200,
+    "script-sample":""
+  }
+}`
+)

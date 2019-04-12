@@ -4,7 +4,7 @@ const HEADER_LINKS = {
 		linkName: 'what-is-csp',
 	},
 	whyCSP: {
-		text: 'Why is CSP important?',
+		text: 'Why is CSP Important?',
 		linkName: 'why-is-csp-important',
 	},
 	badForm: {
@@ -28,7 +28,7 @@ const HEADER_LINKS = {
 		linkName: 'whats-a-nonce',
 	},
 	usingNonces: {
-		text: 'Using nonces with CSP',
+		text: 'Using Nonces with CSP',
 		linkName: 'using-nonces-with-csp',
 	},
 	goodForm: {

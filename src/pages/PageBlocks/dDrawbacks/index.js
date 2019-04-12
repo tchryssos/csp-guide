@@ -7,7 +7,7 @@ import ListItem from 'components/ListItem'
 const Drawbacks = () => (
 	<>
 		<ContentBlock headerKey="nonceDrawbacks">
-			<p>As we&apos;ve currently defined them, a nonce-based CSP would restrict any scripts created by a trusted script. This is problematic for a script loading a library that might need to inject additional scripts. To remedy this, Google has proposed using the <span className="bold">strict-dyanmic</span> keyword in your script-src directive.</p>
+			<p>As we&apos;ve currently defined them, a nonce-based CSP would restrict any scripts created by a trusted script. This is problematic for a script loading a library that might need to inject additional scripts. To remedy this, Google has proposed using the <span className="bold">strict-dynamic</span> keyword in your script-src directive.</p>
 			<Quote>
 				<p>
 					[With strict-dynamic] Dynamically added scripts are allowed to

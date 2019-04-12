@@ -1,5 +1,7 @@
 import React from 'react'
 
+import { CSP_REPORT } from 'constants/codeStrings'
+
 import ContentBlock from 'components/ContentBlock'
 import Quote from 'components/Quote'
 import ListItem from 'components/ListItem'
@@ -19,7 +21,7 @@ const HowDoesCSPWork = () => (
 				Now, trying to load non-white-listed content will result in that content being prevented from running and a console error:
 			</p>
 			<code>
-				Refused to load the stylesheet &apos;http://virus.scss/&apos; because it violates the following Content Security Policy directive: &quot;style-src &apos;self&apos; https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css&quot;.
+				Refused to load the stylesheet &apos;http://virus.css/&apos; because it violates the following Content Security Policy directive: &quot;style-src &apos;self&apos; https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css&quot;.
 			</code>
 		</ContentBlock>
 		<ContentBlock headerKey="reports">
@@ -38,8 +40,8 @@ const HowDoesCSPWork = () => (
 			<p>
 				A report looks like the following:
 			</p>
-			<code>
-				Good report
+			<code className="formattedCode">
+				<pre>{CSP_REPORT}</pre>
 			</code>
 		</ContentBlock>
 		<ContentBlock headerKey="cspDirectives">

@@ -8,8 +8,8 @@ const headerLinks = () => (
 	Object.keys(HEADER_LINKS).map((key) => {
 		if (HEADER_LINKS[key].text) {
 			return (
-				<ListItem>
-					<a href={`#${HEADER_LINKS[key].linkName}`}>
+				<ListItem key={key}>
+					<a href={`#${HEADER_LINKS[key].linkName}`} key={key}>
 						{HEADER_LINKS[key].text}
 					</a>
 				</ListItem>
