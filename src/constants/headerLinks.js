@@ -15,6 +15,10 @@ const HEADER_LINKS = {
 		text: 'How Does CSP Work?',
 		linkName: 'how-does-csp-work',
 	},
+	reports: {
+		text: 'Reports & Report Only Mode',
+		linkName: 'reports',
+	},
 	cspDirectives: {
 		text: 'CSP Directives',
 		linkName: 'csp-directives',

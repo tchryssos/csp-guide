@@ -4,10 +4,6 @@ import ContentBlock from 'components/ContentBlock'
 import Quote from 'components/Quote'
 import ListItem from 'components/ListItem'
 
-import CSSRejected from 'static/images/reject-css.jpg'
-
-import './HowDoesCSPWork.scss'
-
 const HowDoesCSPWork = () => (
 	<>
 		<ContentBlock headerKey="howDoesCSPWork">
@@ -19,11 +15,32 @@ const HowDoesCSPWork = () => (
 			<code>
 				Content-Security-Policy: style-src &apos;self&apos; https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css
 			</code>
-			<img
-				src={CSSRejected}
-				alt="Error message showing blocked style file"
-				className="cssRejectedImg"
-			/>
+			<p>
+				Now, trying to load non-white-listed content will result in that content being prevented from running and a console error:
+			</p>
+			<code>
+				Refused to load the stylesheet &apos;http://virus.scss/&apos; because it violates the following Content Security Policy directive: &quot;style-src &apos;self&apos; https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css&quot;.
+			</code>
+		</ContentBlock>
+		<ContentBlock headerKey="reports">
+			<p>
+				Unfortunately, it can be difficult to get started with CSP. Knowing where all the content in a modern app comes from is complicated. Furthermore, apps with lots of users might not be able to roll out such a massive (and potentially disruptive) feature without lots of testing and data first. That&apos;s where reports and Report-Only mode come in.
+			</p>
+			<p>
+				For developers who just want to <span className="italics">see</span> where all their content is coming from, CSP offers Report-Only mode. Enabling Report-Only mode is as simple as updating the CSP header:
+			</p>
+			<code>
+				Content-Security-Policy-Report-Only: default-src https:; report-uri /csp-violation-report-endpoint/
+			</code>
+			<p>
+				Note the &quot;report-uri&quot; directive (we&apos;ll get into all the available directives below). This directive allows you to specify a uri to which CSP violation reports will be POSTed as JSON. Each time something in your site would violate the specified CSP, rather than prevent that code from running, CSP will simply send you a report. This can give you some perspective and insight into where your content is coming from before you commit to a restrictive CSP.
+			</p>
+			<p>
+				A report looks like the following:
+			</p>
+			<code>
+				Good report
+			</code>
 		</ContentBlock>
 		<ContentBlock headerKey="cspDirectives">
 			<p>There are currently 16 supported directives in Content Security Policy (via <a href="https://developers.google.com/web/fundamentals/security/csp/">Google</a>):</p>
