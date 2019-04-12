@@ -10,7 +10,7 @@ import './HowDoesCSPWork.scss'
 
 const HowDoesCSPWork = () => (
 	<>
-		<ContentBlock title="How Does CSP Work?">
+		<ContentBlock headerKey="howDoesCSPWork">
 			<p>CSP generally works by specifying (“white-listing”) domains that the developer trusts to deliver content. For example, if we have a Google Analytics script that we want to run, we would white-list analytics.google.com in our content security policy.</p>
 			<code>
 				Content-Security-Policy: script-src &apos;self&apos; https://analytics.google.com
@@ -25,8 +25,8 @@ const HowDoesCSPWork = () => (
 				className="cssRejectedImg"
 			/>
 		</ContentBlock>
-		<ContentBlock title="CSP Directives">
-			<p>There are currently 16 allowed directives in a Content Security Policy (via <a href="https://developers.google.com/web/fundamentals/security/csp/">Google</a>):</p>
+		<ContentBlock headerKey="cspDirectives">
+			<p>There are currently 16 supported directives in Content Security Policy (via <a href="https://developers.google.com/web/fundamentals/security/csp/">Google</a>):</p>
 			<Quote>
 				<ul>
 					<ListItem title="base-uri">
@@ -80,7 +80,6 @@ const HowDoesCSPWork = () => (
 				</ul>
 			</Quote>
 			<p>Each of these directives can be set in the Content-Security-Policy header. They all begin “wide open”, and can be made more restrictive. Along with specifying specific white-listed domains, there are also keywords that can be used in each directive. “self” and “none” can be used in every directive (allowing anything from the current origin and disallowing all content respectively).</p>
-			<p>As an aside, CSP is known as a “defense-in-depth”, meaning it should be treated as a redundancy rather than a first line of defense. XSS is best protected against with good input sanitization and validation.</p>
 			<p>However, <a href="https://storage.googleapis.com/pub-tools-public-publication-data/pdf/45542.pdf">research by Google</a> shows that white-list based policies are by-and-large insecure, and maintaining a secure one is unwieldy:</p>
 			<Quote>
 				<p>For each host within the whitelist the maintainer needs to ensure that an attacker is not capable of injecting malicious content, which could be included via a &#60;script&#62; or an &#60;object&#62; tag… JSONP endpoints and AngularJS libraries are two of many ways to achieve [a malicious injection]. If even just one domain exposes such endpoints, the anti-XSS capabilities of CSP are rendered useless.<br />

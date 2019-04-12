@@ -1,6 +1,6 @@
 import React from 'react'
 import postComment from 'static/js/postComment'
-import { dangerousImage } from 'constants/codeStrings'
+import { DANGEROUS_IMAGE } from 'constants/codeStrings'
 
 import './Blog.scss'
 
@@ -28,7 +28,8 @@ const Blog = () => (
 			/>
 			<span className="subtext">
 				Psst... I&apos;m a hacker. <br />
-				Try commenting {dangerousImage}
+				Try commenting {DANGEROUS_IMAGE} <br />
+				and watch your console...
 			</span>
 			<button
 				onClick={postComment}

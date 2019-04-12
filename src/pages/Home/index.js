@@ -1,9 +1,9 @@
 import React from 'react'
 
-import CSPDescription from 'pages/PageBlocks/CSPDescription'
-import HowDoesCSPWork from 'pages/PageBlocks/HowDoesCSPWork'
-import Nonces from 'pages/PageBlocks/Nonces'
-import Drawbacks from 'pages/PageBlocks/Drawbacks'
+import CSPDescription from 'pages/PageBlocks/aCSPDescription'
+import HowDoesCSPWork from 'pages/PageBlocks/bHowDoesCSPWork'
+import Nonces from 'pages/PageBlocks/cNonces'
+import Drawbacks from 'pages/PageBlocks/dDrawbacks'
 
 import PageWrapper from 'components/PageWrapper'
 

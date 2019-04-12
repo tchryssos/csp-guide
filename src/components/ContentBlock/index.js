@@ -1,20 +1,22 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
+import LinkHeader from 'components/LinkHeader'
+
 import './ContentBlock.scss'
 
 const ContentBlock = (props) => {
-	const { title, children } = props
+	const { headerKey, children } = props
 	return (
 		<div className="contentBlockWrapper">
-			<h1>{title}</h1>
+			<LinkHeader headerKey={headerKey} />
 			{children}
 		</div>
 	)
 }
 
 ContentBlock.propTypes = {
-	title: PropTypes.string.isRequired,
+	headerKey: PropTypes.string.isRequired,
 	children: PropTypes.node.isRequired,
 }
 
