@@ -21,7 +21,7 @@ const CSPDescription = () => (
 				Connection: keep-alive<br />
 			</code>
 		</ContentBlock>
-		<ContentBlock headerKey="whyIsThisImportant">
+		<ContentBlock headerKey="whyCSP">
 			<p>
 				CSP is primarily used as a defense against Cross-Site Scripting, or XSS attacks. The <a href="https://www.owasp.org/index.php/Cross-site_Scripting_(XSS)">Open Web Application Security Project defines an XSS attack as</a>:
 			</p>

@@ -3,9 +3,9 @@ const HEADER_LINKS = {
 		text: 'What is Content Security Policy?',
 		linkName: 'what-is-csp',
 	},
-	whyIsThisImportant: {
-		text: 'Why is this important?',
-		linkName: 'why-is-this-important',
+	whyCSP: {
+		text: 'Why is CSP important?',
+		linkName: 'why-is-csp-important',
 	},
 	badForm: {
 		text: '',

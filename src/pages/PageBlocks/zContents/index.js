@@ -2,6 +2,8 @@ import React from 'react'
 import HEADER_LINKS from 'constants/headerLinks'
 import ListItem from 'components/ListItem'
 
+import './Contents.scss'
+
 const headerLinks = () => (
 	Object.keys(HEADER_LINKS).map((key) => {
 		if (HEADER_LINKS[key].text) {
@@ -19,6 +21,7 @@ const headerLinks = () => (
 
 const Contents = () => (
 	<div className="contentsWrapper">
+		<h3>Contents</h3>
 		<ul>
 			{headerLinks()}
 		</ul>
