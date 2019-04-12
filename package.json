@@ -10,7 +10,8 @@
     "compile": "npm webpack",
     "start": "node server.js",
     "build:dev": "routing=hash webpack --config webpack.config.js --colors ",
-    "lint": "eslint src --fix"
+    "lint": "eslint src --fix",
+    "build_and_run": "npm run build:dev && npm start"
   },
   "dependencies": {
     "@babel/core": "^7.2.0",
@@ -38,6 +39,7 @@
     "prop-types": "^15.6.2",
     "react": "^16.6.0",
     "react-dom": "^16.6.0",
+    "react-frame-component": "^4.1.0",
     "react-router-dom": "^4.1.2",
     "sass-loader": "^6.0.6",
     "style-loader": "^0.18.2",
