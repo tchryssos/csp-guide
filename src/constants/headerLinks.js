@@ -39,6 +39,10 @@ const HEADER_LINKS = {
 		text: 'Nonce Drawbacks (& Solutions)',
 		linkName: 'nonce-drawbacks',
 	},
+	hashes: {
+		text: 'Using Hashes',
+		linkName: 'using-hashes',
+	},
 }
 
 export default HEADER_LINKS

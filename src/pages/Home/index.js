@@ -4,6 +4,7 @@ import CSPDescription from 'pages/PageBlocks/aCSPDescription'
 import HowDoesCSPWork from 'pages/PageBlocks/bHowDoesCSPWork'
 import Nonces from 'pages/PageBlocks/cNonces'
 import Drawbacks from 'pages/PageBlocks/dDrawbacks'
+import Hashes from 'pages/PageBlocks/eHashes'
 import Contents from 'pages/PageBlocks/zContents'
 
 import PageWrapper from 'components/PageWrapper'
@@ -15,6 +16,7 @@ const Home = () => (
 		<HowDoesCSPWork />
 		<Nonces />
 		<Drawbacks />
+		<Hashes />
 	</PageWrapper>
 )
 

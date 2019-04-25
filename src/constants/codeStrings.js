@@ -97,3 +97,11 @@ export const CSP_REPORT = (
   }
 }`
 )
+
+export const WHAT_TO_HASH = (
+	// eslint-disable-next-line
+`<script> // no
+  const message = 'Boba Fett? Boba Fett? Where?' // yes
+  console.log(message) // yes
+</script> // no`
+)

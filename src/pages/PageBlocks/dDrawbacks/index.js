@@ -106,7 +106,7 @@ const Drawbacks = () => (
 					can be used to centrally enforce security decisions.
 				</p>
 			</Quote>
-			<p>These policies combined may yield better results than nonce-based alone (and is leagues better than a white-list only policy, which has been shown to be ineffective).</p>
+			<p>These policies combined may yield better results than nonce-based alone (and is leagues better than a whitelist only policy, which has been shown to be ineffective).</p>
 		</ContentBlock>
 	</>
 )

@@ -9,16 +9,16 @@ import ListItem from 'components/ListItem'
 const HowDoesCSPWork = () => (
 	<>
 		<ContentBlock headerKey="howDoesCSPWork">
-			<p>CSP generally works by specifying (“white-listing”) domains that the developer trusts to deliver content. For example, if we have a Google Analytics script that we want to run, we would white-list analytics.google.com in our content security policy.</p>
+			<p>CSP generally works by specifying (“whitelisting”) domains that the developer trusts to deliver content. For example, if we have a Google Analytics script that we want to run, we would whitelist analytics.google.com in our content security policy.</p>
 			<code>
 				Content-Security-Policy: script-src &apos;self&apos; https://analytics.google.com
 			</code>
-			<p>This also works for specifying trusted domains for CSS files, fonts, etc. Anything being loaded from a non-white-listed domain is blocked by the browser.</p>
+			<p>This also works for specifying trusted domains for CSS files, fonts, etc. Anything being loaded from a non-whitelisted domain is blocked by the browser.</p>
 			<code>
 				Content-Security-Policy: style-src &apos;self&apos; https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css
 			</code>
 			<p>
-				Now, trying to load non-white-listed content will result in that content being prevented from running and a console error:
+				Now, trying to load non-whitelisted content will result in that content being prevented from running and a console error:
 			</p>
 			<code>
 				Refused to load the stylesheet &apos;http://virus.css/&apos; because it violates the following Content Security Policy directive: &quot;style-src &apos;self&apos; https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css&quot;.
@@ -98,8 +98,8 @@ const HowDoesCSPWork = () => (
 					</ListItem>
 				</ul>
 			</Quote>
-			<p>Each of these directives can be set in the Content-Security-Policy header. They all begin “wide open”, and can be made more restrictive. Along with specifying specific white-listed domains, there are also keywords that can be used in each directive. “self” and “none” can be used in every directive (allowing anything from the current origin and disallowing all content respectively).</p>
-			<p>However, <a href="https://storage.googleapis.com/pub-tools-public-publication-data/pdf/45542.pdf">research by Google</a> shows that white-list based policies are by-and-large insecure, and maintaining a secure one is unwieldy:</p>
+			<p>Each of these directives can be set in the Content-Security-Policy header. They all begin “wide open”, and can be made more restrictive. Along with specifying specific whitelisted domains, there are also keywords that can be used in each directive. “self” and “none” can be used in every directive (allowing anything from the current origin and disallowing all content respectively).</p>
+			<p>However, <a href="https://storage.googleapis.com/pub-tools-public-publication-data/pdf/45542.pdf">research by Google</a> shows that whitelist based policies are by-and-large insecure, and maintaining a secure one is unwieldy:</p>
 			<Quote>
 				<p>For each host within the whitelist the maintainer needs to ensure that an attacker is not capable of injecting malicious content, which could be included via a &#60;script&#62; or an &#60;object&#62; tag… JSONP endpoints and AngularJS libraries are two of many ways to achieve [a malicious injection]. If even just one domain exposes such endpoints, the anti-XSS capabilities of CSP are rendered useless.<br />
 					<br />
