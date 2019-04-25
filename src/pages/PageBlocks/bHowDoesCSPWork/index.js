@@ -5,6 +5,7 @@ import { CSP_REPORT } from 'constants/codeStrings'
 import ContentBlock from 'components/ContentBlock'
 import Quote from 'components/Quote'
 import ListItem from 'components/ListItem'
+import CodeWord from 'components/CodeWord'
 
 const HowDoesCSPWork = () => (
 	<>
@@ -35,7 +36,7 @@ const HowDoesCSPWork = () => (
 				Content-Security-Policy-Report-Only: default-src https:; report-uri /csp-violation-report-endpoint/
 			</code>
 			<p>
-				Note the &quot;report-uri&quot; directive (we&apos;ll get into all the available directives below). This directive allows you to specify a uri to which CSP violation reports will be POSTed as JSON. Each time something in your site would violate the specified CSP, rather than prevent that code from running, CSP will simply send you a report. This can give you some perspective and insight into where your content is coming from before you commit to a restrictive CSP.
+				Note the &quot;report-uri&quot; fetch directive (we&apos;ll get into all the available directives below). This directive allows you to specify a uri to which CSP violation reports will be POSTed as JSON. Each time something in your site would violate the specified CSP, rather than prevent that code from running, CSP will simply send you a report. This can give you some perspective and insight into where your content is coming from before you commit to a restrictive CSP.
 			</p>
 			<p>
 				A report looks like the following:
@@ -45,9 +46,14 @@ const HowDoesCSPWork = () => (
 			</code>
 		</ContentBlock>
 		<ContentBlock headerKey="cspDirectives">
-			<p>There are currently 16 supported directives in Content Security Policy (via <a href="https://developers.google.com/web/fundamentals/security/csp/">Google</a>):</p>
+			<p>
+				There are currently 16 supported fetch directives (and one fallback) in Content Security Policy (via <a href="https://developers.google.com/web/fundamentals/security/csp/">Google</a> and <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy">Mozilla</a>):
+			</p>
 			<Quote>
 				<ul>
+					<ListItem title="defualt-src">
+						serves as a fallback for the other CSP fetch directives. For each [absent directive], the user agent will look for the default-src directive and will use this value for it.
+					</ListItem>
 					<ListItem title="base-uri">
 						restricts the URLs that can appear in a page&apos;s base element.
 					</ListItem>
@@ -98,19 +104,44 @@ const HowDoesCSPWork = () => (
 					</ListItem>
 				</ul>
 			</Quote>
-			<p>Each of these directives can be set in the Content-Security-Policy header. They all begin “wide open”, and can be made more restrictive. Along with specifying specific whitelisted domains, there are also keywords that can be used in each directive. “self” and “none” can be used in every directive (allowing anything from the current origin and disallowing all content respectively).</p>
-			<p>However, <a href="https://storage.googleapis.com/pub-tools-public-publication-data/pdf/45542.pdf">research by Google</a> shows that whitelist based policies are by-and-large insecure, and maintaining a secure one is unwieldy:</p>
+			<p>
+				Each of these directives can be set in the Content-Security-Policy header. They all begin “wide open”, and can be made more restrictive by defining allowed sources. A full list of source options follows (via <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy/default-src#Sources">Mozilla</a>):
+			</p>
 			<Quote>
-				<p>For each host within the whitelist the maintainer needs to ensure that an attacker is not capable of injecting malicious content, which could be included via a &#60;script&#62; or an &#60;object&#62; tag… JSONP endpoints and AngularJS libraries are two of many ways to achieve [a malicious injection]. If even just one domain exposes such endpoints, the anti-XSS capabilities of CSP are rendered useless.<br />
-					<br />
-					…<br />
-					<br />
-					While very short whitelists are still quite safe, longer whitelists are much less secure. For example, at the median of 12 entries, we managed to bypass 94.8 % of all policies.</p>
+				<ul>
+					<ListItem title="<host-source>">
+						Internet hosts by name or IP address, as well as an optional URL scheme and/or port number. The site&apos;s address may include an optional leading wildcard (the asterisk character, <CodeWord>&apos;*&apos;</CodeWord>), and you may use a wildcard (again, <CodeWord>&apos;*&apos;</CodeWord>) as the port number, indicating that all legal ports are valid for the source.
+					</ListItem>
+					<ListItem title="<scheme-source>">
+						A schema such as &apos;http:&apos; or &apos;https:&apos;. <span className="bold">The colon is required, single quotes shouldn&apos;t be used.</span> You can also specify data schemas (not recommended).
+					</ListItem>
+					<ListItem title="'self'">
+						Refers to the origin from which the protected document is being served, including the same URL scheme and port number. You must include the single quotes. Some browsers specifically exclude <CodeWord>blob</CodeWord> and <CodeWord>filesystem</CodeWord> from source directives. Sites needing to allow these content types can specify them using the Data attribute.
+					</ListItem>
+				</ul>
+			</Quote>
+			<p>
+				However, <a href="https://storage.googleapis.com/pub-tools-public-publication-data/pdf/45542.pdf">research by Google</a> shows that whitelist based policies are by-and-large insecure, and maintaining a secure one is unwieldy:
+			</p>
+			<Quote>
+				<p>
+					For each host within the whitelist the maintainer needs to ensure that an attacker is not capable of injecting malicious content, which could be included via a &#60;script&#62; or an &#60;object&#62; tag… JSONP endpoints and AngularJS libraries are two of many ways to achieve [a malicious injection]. If even just one domain exposes such endpoints, the anti-XSS capabilities of CSP are rendered useless.
+				</p>
+				<br />
+				<p>...</p>
+				<br />
+				<p>
+					While very short whitelists are still quite safe, longer whitelists are much less secure. For example, at the median of 12 entries, we managed to bypass 94.8 % of all policies.
+				</p>
 			</Quote>
 		</ContentBlock>
-		<p>As an alternative, Google recommends the use of a nonce-based CSP centered around the script-src directive:</p>
+		<p>
+			As an alternative, Google recommends the use of a nonce-based CSP centered around the script-src directive:
+		</p>
 		<Quote>
-			<p>Instead of relying on whitelists, application maintainers should apply a nonce-based protection approach… By using a nonce, scripts can be whitelisted individually. Even if an attacker is capable of finding an XSS, the nonce value is unpredictable, so it is not possible for the attacker to inject a valid script…</p>
+			<p>
+				Instead of relying on whitelists, application maintainers should apply a nonce-based protection approach… By using a nonce, scripts can be whitelisted individually. Even if an attacker is capable of finding an XSS, the nonce value is unpredictable, so it is not possible for the attacker to inject a valid script…
+			</p>
 		</Quote>
 	</>
 )
