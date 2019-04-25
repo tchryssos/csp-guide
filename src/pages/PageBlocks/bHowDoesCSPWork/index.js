@@ -10,11 +10,15 @@ import CodeWord from 'components/CodeWord'
 const HowDoesCSPWork = () => (
 	<>
 		<ContentBlock headerKey="howDoesCSPWork">
-			<p>CSP generally works by specifying (“whitelisting”) domains that the developer trusts to deliver content. For example, if we have a Google Analytics script that we want to run, we would whitelist analytics.google.com in our content security policy.</p>
+			<p>
+				CSP generally works by specifying (“whitelisting”) domains that the developer trusts to deliver content. For example, if we have a Google Analytics script that we want to run, we would whitelist analytics.google.com in our content security policy.
+			</p>
 			<code>
 				Content-Security-Policy: script-src &apos;self&apos; https://analytics.google.com
 			</code>
-			<p>This also works for specifying trusted domains for CSS files, fonts, etc. Anything being loaded from a non-whitelisted domain is blocked by the browser.</p>
+			<p>
+				This also works for specifying trusted domains for CSS files, fonts, etc. Anything being loaded from a non-whitelisted domain is blocked by the browser.
+			</p>
 			<code>
 				Content-Security-Policy: style-src &apos;self&apos; https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css
 			</code>
@@ -36,7 +40,7 @@ const HowDoesCSPWork = () => (
 				Content-Security-Policy-Report-Only: default-src https:; report-uri /csp-violation-report-endpoint/
 			</code>
 			<p>
-				Note the &quot;report-uri&quot; fetch directive (we&apos;ll get into all the available directives below). This directive allows you to specify a uri to which CSP violation reports will be POSTed as JSON. Each time something in your site would violate the specified CSP, rather than prevent that code from running, CSP will simply send you a report. This can give you some perspective and insight into where your content is coming from before you commit to a restrictive CSP.
+				Note the <CodeWord>report-uri</CodeWord> fetch directive (we&apos;ll get into all the available directives below). This directive allows you to specify a uri to which CSP violation reports will be POSTed as JSON. Each time something in your site would violate the specified CSP, rather than prevent that code from running, CSP will simply send you a report. This can give you some perspective and insight into where your content is coming from before you commit to a restrictive CSP.
 			</p>
 			<p>
 				A report looks like the following:
@@ -117,6 +121,9 @@ const HowDoesCSPWork = () => (
 					</ListItem>
 					<ListItem title="'self'">
 						Refers to the origin from which the protected document is being served, including the same URL scheme and port number. You must include the single quotes. Some browsers specifically exclude <CodeWord>blob</CodeWord> and <CodeWord>filesystem</CodeWord> from source directives. Sites needing to allow these content types can specify them using the Data attribute.
+					</ListItem>
+					<ListItem title="'unsafe-inline'">
+						{/* Allows the use of inline resources, such as inline <CodeWord><script></CodeWord> elements, <CodeWord>javascript:<CodeWord> URLs, inline event handlers, and inline <CodeWord><style></CodeWord> elements. You must include the single quotes. */}
 					</ListItem>
 				</ul>
 			</Quote>
