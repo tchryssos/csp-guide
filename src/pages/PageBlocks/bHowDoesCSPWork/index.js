@@ -123,7 +123,7 @@ const HowDoesCSPWork = () => (
 						Refers to the origin from which the protected document is being served, including the same URL scheme and port number. You must include the single quotes. Some browsers specifically exclude <CodeWord>blob</CodeWord> and <CodeWord>filesystem</CodeWord> from source directives. Sites needing to allow these content types can specify them using the Data attribute.
 					</ListItem>
 					<ListItem title="'unsafe-inline'">
-						{/* Allows the use of inline resources, such as inline <CodeWord><script></CodeWord> elements, <CodeWord>javascript:<CodeWord> URLs, inline event handlers, and inline <CodeWord><style></CodeWord> elements. You must include the single quotes. */}
+						Allows the use of inline resources, such as inline <CodeWord>&#60;script&#62;</CodeWord> elements, <CodeWord>javascript:</CodeWord> URLs, inline event handlers, and inline <CodeWord>&#60;style&#62;</CodeWord> elements. You must include the single quotes.
 					</ListItem>
 				</ul>
 			</Quote>
