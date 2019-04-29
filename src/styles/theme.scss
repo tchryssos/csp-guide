@@ -39,6 +39,11 @@ code {
   text-align: center;
 }
 
+pre {
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
 .bold {
   font-weight: 600;
 }
@@ -54,4 +59,10 @@ code {
 
 .formattedCode {
   text-align: left;
+}
+
+@media only screen and (max-width: 700px) {
+  code {
+    font-size: 12px;
+  }
 }
