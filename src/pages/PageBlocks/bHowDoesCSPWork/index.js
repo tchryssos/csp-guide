@@ -172,7 +172,7 @@ const HowDoesCSPWork = () => (
 				</ul>
 			</Quote>
 			<p>
-				However, <a href="https://storage.googleapis.com/pub-tools-public-publication-data/pdf/45542.pdf">research by Google</a> shows that whitelist based policies are by-and-large insecure, and maintaining a secure one is unwieldy:
+				As you can see, there are a wide variety of sources you can configure your directives with, most of which pertain to whitelisting. However, <a href="https://storage.googleapis.com/pub-tools-public-publication-data/pdf/45542.pdf">research by Google</a> shows that whitelist based policies are by-and-large insecure, and maintaining a secure one is unwieldy:
 			</p>
 			<Quote>
 				<p>
@@ -187,7 +187,7 @@ const HowDoesCSPWork = () => (
 			</Quote>
 		</ContentBlock>
 		<p>
-			As an alternative, Google recommends the use of a nonce-based CSP centered around the script-src directive:
+			As an alternative, Google recommends the use of a nonce-based CSP centered around the <CodeWord>script-src</CodeWord> directive:
 		</p>
 		<Quote>
 			<p>

@@ -6,10 +6,12 @@ import {
 	TEMPLATING_STRING,
 	TEMPLATE_SERVER_STRING,
 	FIND_AND_REPLACE_STRING,
+	NONCE_GENERATION_AND_B64,
 } from 'constants/codeStrings'
 
 import ContentBlock from 'components/ContentBlock'
 import Quote from 'components/Quote'
+import CodeWord from 'components/CodeWord'
 
 import './Nonces.scss'
 
@@ -21,7 +23,7 @@ const generateNonce = () => {
 		nonceTarget.removeChild(nonceTarget.firstChild)
 	}
 	const nonceDiv = document.createElement('div')
-	nonceDiv.innerText = nonce
+	nonceDiv.innerText = window.btoa(nonce)
 	nonceTarget.appendChild(nonceDiv)
 }
 
@@ -41,6 +43,13 @@ const Nonces = () => (
 				</button>
 				<div className="nonceTarget" />
 			</div>
+			<p>While nonces themselves are generally numbers, for CSP they should be base64 encoded. The above example uses the following code to generate the nonce and then convert it to base64:</p>
+			<code className="formattedCode">
+				<pre>{NONCE_GENERATION_AND_B64}</pre>
+			</code>
+			<p>
+				For more information, please read about <a href="https://developer.mozilla.org/en-US/docs/Web/API/Window/crypto"><CodeWord>Window.crypto</CodeWord></a> and <a href="https://developer.mozilla.org/en-US/docs/Web/API/WindowBase64/Base64_encoding_and_decoding"><CodeWord>btoa()</CodeWord></a>.
+			</p>
 		</ContentBlock>
 		<ContentBlock headerKey="usingNonces">
 			<p>Google’s recommendation is to use nonces with the script-src directive, which they identified as the “primary reason for the insecurity of policies.” This is fairly straightforward to implement on the header side:</p>

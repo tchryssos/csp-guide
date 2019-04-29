@@ -100,3 +100,8 @@ export const WHAT_TO_HASH = (
   console.log(message) // yes
 </script> // no`
 )
+
+export const NONCE_GENERATION_AND_B64 = (
+	`const nonce = window.crypto.getRandomValues(new Uint32Array(1))[0]
+window.btoa(nonce)`
+)
