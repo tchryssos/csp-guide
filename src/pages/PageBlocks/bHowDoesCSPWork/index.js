@@ -53,7 +53,7 @@ const HowDoesCSPWork = () => (
 		</ContentBlock>
 		<ContentBlock headerKey="cspDirectives">
 			<p>
-				There are currently 16 supported fetch directives (and one fallback) in Content Security Policy (via <a href="https://developers.google.com/web/fundamentals/security/csp/">Google</a> and <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy">Mozilla</a>):
+				There are currently 16 supported fetch directives (and one fallback) in Content Security Policy (via <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy">Mozilla</a> and <a href="https://developers.google.com/web/fundamentals/security/csp/">Google</a>):
 			</p>
 			<Quote>
 				<ul>

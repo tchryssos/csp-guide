@@ -12,6 +12,7 @@ import {
 import ContentBlock from 'components/ContentBlock'
 import Quote from 'components/Quote'
 import CodeWord from 'components/CodeWord'
+import LinkIcon from 'components/LinkIcon'
 
 import './Nonces.scss'
 
@@ -85,9 +86,14 @@ const Nonces = () => (
 			<code className="formattedCode">
 				<pre>{FIND_AND_REPLACE_STRING}</pre>
 			</code>
-			<p>
-				<a href="/good-form">Click here</a> to try an XSS attack with a nonce-based CSP enabled!
-			</p>
+			<div className="xssExampleDiv">
+				<a name="csp-safe-example">
+					<LinkIcon headerKey="cspSafeExample" />
+				</a>
+				<span>
+					<a href="/good-form">Click here</a> to try your own XSS attack with CSP enabled!
+				</span>
+			</div>
 			<p>As you can see, while applying nonces can be tricky (especially when trying to put them in an app retroactively), they&apos;re extremely secure. That being said, it&apos;s important to recognize their drawbacks.</p>
 		</ContentBlock>
 	</>
