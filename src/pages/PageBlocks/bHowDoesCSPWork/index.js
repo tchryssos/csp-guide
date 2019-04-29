@@ -7,6 +7,8 @@ import Quote from 'components/Quote'
 import ListItem from 'components/ListItem'
 import CodeWord from 'components/CodeWord'
 
+import './HowDoesCSPWork.scss'
+
 const HowDoesCSPWork = () => (
 	<>
 		<ContentBlock headerKey="howDoesCSPWork">
@@ -115,15 +117,57 @@ const HowDoesCSPWork = () => (
 				<ul>
 					<ListItem title="<host-source>">
 						Internet hosts by name or IP address, as well as an optional URL scheme and/or port number. The site&apos;s address may include an optional leading wildcard (the asterisk character, <CodeWord>&apos;*&apos;</CodeWord>), and you may use a wildcard (again, <CodeWord>&apos;*&apos;</CodeWord>) as the port number, indicating that all legal ports are valid for the source.
+						<br />
+						Examples:
+						<ListItem className="innerListItem">
+							<CodeWord>http://*.example.com</CodeWord>: Matches all attempts to load from any subdomain of example.com using the <CodeWord>http:</CodeWord> URL scheme.
+						</ListItem>
+						<ListItem className="innerListItem">
+							<CodeWord>mail.example.com:443</CodeWord>: Matches all attempts to access port 443 on mail.example.com.
+						</ListItem>
+						<ListItem className="innerListItem">
+							<CodeWord>https://store.example.com</CodeWord>: Matches all attempts to access store.example.com using <CodeWord>https:</CodeWord>.
+						</ListItem>
 					</ListItem>
 					<ListItem title="<scheme-source>">
 						A schema such as &apos;http:&apos; or &apos;https:&apos;. <span className="bold">The colon is required, single quotes shouldn&apos;t be used.</span> You can also specify data schemas (not recommended).
+						<ListItem className="innerListItem">
+							<CodeWord>data:</CodeWord> allows <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/Data_URIs"><CodeWord>data:</CodeWord> URIs</a> to be used as a content source. <span className="italics">This is insecure; an attacker can also inject arbitrary data: URIs. Use this sparingly and definitely not for scripts.</span>
+						</ListItem>
+						<ListItem className="innerListItem">
+							<CodeWord>mediastream:</CodeWord> Allows <a href="https://developer.mozilla.org/en-US/docs/Web/API/Media_Streams_API"><CodeWord>mediastream:</CodeWord> URIs</a> to be used as a content source.
+						</ListItem>
+						<ListItem className="innerListItem">
+							<CodeWord>blob:</CodeWord> Allows <a href="https://developer.mozilla.org/en-US/docs/Web/API/Blob"><CodeWord>blob:</CodeWord> URIs</a> to be used as a content source.
+						</ListItem>
+						<ListItem className="innerListItem">
+							<CodeWord>filesystem:</CodeWord> Allows <a href="https://developer.mozilla.org/en-US/docs/Web/API/FileSystem"><CodeWord>filesystem:</CodeWord> URIs</a> to be used as a content source.
+						</ListItem>
 					</ListItem>
 					<ListItem title="'self'">
 						Refers to the origin from which the protected document is being served, including the same URL scheme and port number. You must include the single quotes. Some browsers specifically exclude <CodeWord>blob</CodeWord> and <CodeWord>filesystem</CodeWord> from source directives. Sites needing to allow these content types can specify them using the Data attribute.
 					</ListItem>
 					<ListItem title="'unsafe-inline'">
+						{/* eslint-disable-next-line no-script-url */}
 						Allows the use of inline resources, such as inline <CodeWord>&#60;script&#62;</CodeWord> elements, <CodeWord>javascript:</CodeWord> URLs, inline event handlers, and inline <CodeWord>&#60;style&#62;</CodeWord> elements. You must include the single quotes.
+					</ListItem>
+					<ListItem title="'unsafe-eval'">
+						Allows the use of <CodeWord>eval()</CodeWord> and similar methods for creating code from strings. You must include the single quotes.
+					</ListItem>
+					<ListItem title="'none'">
+						Refers to the empty set; that is, no URLs match. The single quotes are required.
+					</ListItem>
+					<ListItem title="'nonce-<base64-value>'">
+						A whitelist for specific inline scripts using a cryptographic nonce (number used once). The server must generate a unique nonce value each time it transmits a policy. It is critical to provide an unguessable nonce, as bypassing a resource’s policy is otherwise trivial. See <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy/script-src#Unsafe_inline_script">unsafe inline script</a> for an example. Specifying nonce makes a modern browser ignore <CodeWord>&apos;unsafe-inline&apos;</CodeWord> which could still be set for older browsers without nonce support.
+					</ListItem>
+					<ListItem title="'<hash-algorithm>-<base64-value>'">
+						A sha256, sha384 or sha512 hash of scripts or styles. The use of this source consists of two portions separated by a dash: the encryption algorithm used to create the hash and the base64-encoded hash of the script or style. When generating the hash, don&apos;t include the &#60;script&#62; or &#60;style&#62; tags and note that capitalization and whitespace matter, including leading or trailing whitespace. See <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy/script-src#Unsafe_inline_script">unsafe inline script</a> for an example. In CSP 2.0 this applied only to inline scripts. CSP 3.0 allows it in the case of <CodeWord>script-src</CodeWord> for external scripts.
+					</ListItem>
+					<ListItem title="'strict-dynamic'">
+						The <CodeWord>strict-dynamic</CodeWord> source expression specifies that the trust explicitly given to a script present in the markup, by accompanying it with a nonce or a hash, shall be propagated to all the scripts loaded by that root script. At the same time, any whitelist or source expressions such as <CodeWord>&apos;self&apos;</CodeWord> or <CodeWord>&apos;unsafe-inline&apos;</CodeWord> will be ignored. See script-src for an example.
+					</ListItem>
+					<ListItem title="'report-sample'">
+						Requires a sample of the violating code to be included in the violation report.
 					</ListItem>
 				</ul>
 			</Quote>
