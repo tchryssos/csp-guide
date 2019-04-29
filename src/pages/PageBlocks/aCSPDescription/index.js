@@ -39,9 +39,9 @@ const CSPDescription = () => (
 				Besides XSS defense, there are other uses for CSP as well. Imagine that a 3rd party plugin is including a bunch of junk scripts with their useful ones. Maybe these other scripts are slowing your app down on load, or maybe they&apos;re a nuisance to users. With Content Security Policy, you&apos;d be able to tell the browser to keep the parts of that plugin you want and forgo running anything you don&apos;t.
 			</p>
 			<div className="xssExampleDiv">
-				<a name="csp-unsafe-example">
-					<LinkIcon headerKey="cspUnsafeExample" />
-				</a>
+				{/* eslint-disable-next-line jsx-a11y/anchor-has-content */}
+				<a name="csp-unsafe-example" />
+				<LinkIcon headerKey="cspUnsafeExample" />
 				<span>
 					<a href="/bad-form">Click here</a> to try your own XSS attack!
 				</span>

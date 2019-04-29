@@ -87,9 +87,9 @@ const Nonces = () => (
 				<pre>{FIND_AND_REPLACE_STRING}</pre>
 			</code>
 			<div className="xssExampleDiv">
-				<a name="csp-safe-example">
-					<LinkIcon headerKey="cspSafeExample" />
-				</a>
+				{/* eslint-disable-next-line jsx-a11y/anchor-has-content */}
+				<a name="csp-safe-example" />
+				<LinkIcon headerKey="cspSafeExample" />
 				<span>
 					<a href="/good-form">Click here</a> to try your own XSS attack with CSP enabled!
 				</span>

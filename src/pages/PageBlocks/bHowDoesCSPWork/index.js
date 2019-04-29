@@ -119,30 +119,30 @@ const HowDoesCSPWork = () => (
 						Internet hosts by name or IP address, as well as an optional URL scheme and/or port number. The site&apos;s address may include an optional leading wildcard (the asterisk character, <CodeWord>&apos;*&apos;</CodeWord>), and you may use a wildcard (again, <CodeWord>&apos;*&apos;</CodeWord>) as the port number, indicating that all legal ports are valid for the source.
 						<br />
 						Examples:
-						<ListItem className="innerListItem">
-							<CodeWord>http://*.example.com</CodeWord>: Matches all attempts to load from any subdomain of example.com using the <CodeWord>http:</CodeWord> URL scheme.
-						</ListItem>
-						<ListItem className="innerListItem">
-							<CodeWord>mail.example.com:443</CodeWord>: Matches all attempts to access port 443 on mail.example.com.
-						</ListItem>
-						<ListItem className="innerListItem">
-							<CodeWord>https://store.example.com</CodeWord>: Matches all attempts to access store.example.com using <CodeWord>https:</CodeWord>.
-						</ListItem>
+					</ListItem>
+					<ListItem className="innerListItem">
+						<CodeWord>http://*.example.com</CodeWord>: Matches all attempts to load from any subdomain of example.com using the <CodeWord>http:</CodeWord> URL scheme.
+					</ListItem>
+					<ListItem className="innerListItem">
+						<CodeWord>mail.example.com:443</CodeWord>: Matches all attempts to access port 443 on mail.example.com.
+					</ListItem>
+					<ListItem className="innerListItem">
+						<CodeWord>https://store.example.com</CodeWord>: Matches all attempts to access store.example.com using <CodeWord>https:</CodeWord>.
 					</ListItem>
 					<ListItem title="<scheme-source>">
 						A schema such as &apos;http:&apos; or &apos;https:&apos;. <span className="bold">The colon is required, single quotes shouldn&apos;t be used.</span> You can also specify data schemas (not recommended).
-						<ListItem className="innerListItem">
-							<CodeWord>data:</CodeWord> allows <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/Data_URIs"><CodeWord>data:</CodeWord> URIs</a> to be used as a content source. <span className="italics">This is insecure; an attacker can also inject arbitrary data: URIs. Use this sparingly and definitely not for scripts.</span>
-						</ListItem>
-						<ListItem className="innerListItem">
-							<CodeWord>mediastream:</CodeWord> Allows <a href="https://developer.mozilla.org/en-US/docs/Web/API/Media_Streams_API"><CodeWord>mediastream:</CodeWord> URIs</a> to be used as a content source.
-						</ListItem>
-						<ListItem className="innerListItem">
-							<CodeWord>blob:</CodeWord> Allows <a href="https://developer.mozilla.org/en-US/docs/Web/API/Blob"><CodeWord>blob:</CodeWord> URIs</a> to be used as a content source.
-						</ListItem>
-						<ListItem className="innerListItem">
-							<CodeWord>filesystem:</CodeWord> Allows <a href="https://developer.mozilla.org/en-US/docs/Web/API/FileSystem"><CodeWord>filesystem:</CodeWord> URIs</a> to be used as a content source.
-						</ListItem>
+					</ListItem>
+					<ListItem className="innerListItem">
+						<CodeWord>data:</CodeWord> allows <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/Data_URIs"><CodeWord>data:</CodeWord> URIs</a> to be used as a content source. <span className="italics">This is insecure; an attacker can also inject arbitrary data: URIs. Use this sparingly and definitely not for scripts.</span>
+					</ListItem>
+					<ListItem className="innerListItem">
+						<CodeWord>mediastream:</CodeWord> Allows <a href="https://developer.mozilla.org/en-US/docs/Web/API/Media_Streams_API"><CodeWord>mediastream:</CodeWord> URIs</a> to be used as a content source.
+					</ListItem>
+					<ListItem className="innerListItem">
+						<CodeWord>blob:</CodeWord> Allows <a href="https://developer.mozilla.org/en-US/docs/Web/API/Blob"><CodeWord>blob:</CodeWord> URIs</a> to be used as a content source.
+					</ListItem>
+					<ListItem className="innerListItem">
+						<CodeWord>filesystem:</CodeWord> Allows <a href="https://developer.mozilla.org/en-US/docs/Web/API/FileSystem"><CodeWord>filesystem:</CodeWord> URIs</a> to be used as a content source.
 					</ListItem>
 					<ListItem title="'self'">
 						Refers to the origin from which the protected document is being served, including the same URL scheme and port number. You must include the single quotes. Some browsers specifically exclude <CodeWord>blob</CodeWord> and <CodeWord>filesystem</CodeWord> from source directives. Sites needing to allow these content types can specify them using the Data attribute.
