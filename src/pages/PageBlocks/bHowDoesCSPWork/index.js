@@ -57,7 +57,7 @@ const HowDoesCSPWork = () => (
 			</p>
 			<Quote>
 				<ul>
-					<ListItem title="defualt-src">
+					<ListItem title="default-src">
 						serves as a fallback for the other CSP fetch directives. For each [absent directive], the user agent will look for the default-src directive and will use this value for it.
 					</ListItem>
 					<ListItem title="base-uri">
